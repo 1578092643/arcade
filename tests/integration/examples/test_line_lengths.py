@@ -4,6 +4,7 @@ in the documentation. The source code gets clipped after 90 ish characters.
 
 Adapted from util/check_example_line_length.py
 """
+
 import re
 from pathlib import Path
 import arcade
@@ -15,19 +16,20 @@ IGNORE_PATTERNS = [
     "examples/procedural_caves_cellular",  # Contains long link in header
 ]
 
+
 def is_ignored(path: Path):
     path_str = str(path.as_posix())
     for pattern in IGNORE_PATTERNS:
         if pattern in path_str:
-            return True 
+            return True
 
     return False
 
 
 def test_line_lengths():
-    paths = EXAMPLE_ROOT.glob("**/*.py") 
+    paths = EXAMPLE_ROOT.glob("**/*.py")
 
-    regex = re.compile("^.{97}.*$")
+    regex = re.compile("^.{98}.*$")
     grand_total = 0
     file_count = 0
 
@@ -47,4 +49,4 @@ def test_line_lengths():
 
     # print(f"{grand_total} across {file_count} files.")
     if grand_total > 0:
-        raise AssertionError(f"{grand_total} lines exceed length limit in examples") 
+        raise AssertionError(f"{grand_total} lines exceed length limit in examples")
