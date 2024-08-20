@@ -1,6 +1,6 @@
 .. _get-started-here:
 
-Get Started Here
+从这里开始
 ================
 
 .. image:: images/treasure-map.svg
